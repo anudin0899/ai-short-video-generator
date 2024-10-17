@@ -10,7 +10,7 @@ const Header = () => {
     const { user, isSignedIn, isLoaded } = useUser();
 
     return (
-        <div className='p-3 px-10 flex justify-between items-center shadow-md'>
+        <div className='p-4 fixed top-0 w-full z-20 bg-white px-10 flex justify-between items-center shadow-md'>
             <div className='flex gap-2 items-center'>
                 <Image src={'./logo.svg'} alt='logo' width={50} height={50} />
                 <h2 className='font-bold text-xl'>Ai Shorts</h2>
