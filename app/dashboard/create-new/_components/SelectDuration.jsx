@@ -10,7 +10,7 @@ import {
 
 const SelectDuration = ({ onUserSelect }) => {
 
-    const Options = ['30 seconds', '60 seconds', '90 seconds']
+    const Options = ['30 seconds', '60 seconds']
 
     return (
         <div className='mt-5'>

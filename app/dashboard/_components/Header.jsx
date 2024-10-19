@@ -12,7 +12,7 @@ const Header = () => {
     return (
         <div className='p-4 fixed top-0 w-full z-20 bg-white px-10 flex justify-between items-center shadow-md'>
             <div className='flex gap-2 items-center'>
-                <Image src={'./logo.svg'} alt='logo' width={50} height={50} />
+                <Image src={'/logo.svg'}  width="100" height="100" alt="Logo" />
                 <h2 className='font-bold text-xl'>Ai Shorts</h2>
             </div>
 

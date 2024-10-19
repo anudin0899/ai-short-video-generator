@@ -7,7 +7,6 @@ import React from 'react'
 const SideNav = () => {
 
     const path = usePathname();
-    console.log(path,"nnn");
     
 
     const MenuOptions = [

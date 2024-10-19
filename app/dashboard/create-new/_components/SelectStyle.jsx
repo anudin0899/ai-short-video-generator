@@ -39,7 +39,7 @@ const SelectStyle = ({ onUserSelect }) => {
             <div className='grid grid-cols-2 md:grid-cols-3 
             lg:grid-cols-4 xl:grid-cols-6 gap-5 mt-3'>
                 {styleOtions.map((item, index) => (
-                    <div
+                    <div key={index}
                         className={`relative hover:scale-105 
                         transition-all cursor-pointer 
                         ${selectedOption == item?.name && 'border-4 border-blue-300 rounded-xl'}`}
