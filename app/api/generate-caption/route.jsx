@@ -9,8 +9,10 @@ export async function POST(req) {
             apiKey: process.env.CAPTION_API,
         });
 
-        // const FILE_URL = 'https://storage.googleapis.com/aai-web-samples/5_common_sports_injuries.mp3';
+        // const FILE_URL = 'https://assembly.ai/sports_injuries.mp3';
         const FILE_URL = audioFileUrl
+        console.log(audioFileUrl,"file");
+        
 
         const data = {
             audio: FILE_URL

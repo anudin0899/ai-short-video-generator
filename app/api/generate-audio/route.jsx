@@ -33,30 +33,29 @@ export async function POST(req) {
     const [response] = await client.synthesizeSpeech(request);
 
     const audioBuffer = Buffer.from(response.audioContent, 'binary');
+
     // const fileSizeInBytes = audioBuffer.length;  // File size in bytes
 
-    // Define the folder path
-    const folderPath = path.join(process.cwd(), 'audio-files');
+    // // Define the folder path
+    // const folderPath = path.join(process.cwd(), 'audio-files');
+    // // Ensure the folder exists, if not, create it
+    // if (!fs.existsSync(folderPath)) {
+    //     fs.mkdirSync(folderPath);
+    // }
+    // // Define the file path using the unique ID
+    // const filePath = path.join(folderPath, `${id}.mp3`);
 
-    // Ensure the folder exists, if not, create it
-    if (!fs.existsSync(folderPath)) {
-        fs.mkdirSync(folderPath);
-    }
+    // try {
+    //     // Write the audio buffer to a local file
+    //     await util.promisify(fs.writeFile)(filePath, audioBuffer, 'binary');
+    //     console.log(`Audio content written to file: ${filePath}`);
 
-    // Define the file path using the unique ID
-    const filePath = path.join(folderPath, `${id}.mp3`);
-
-    try {
-        // Write the audio buffer to a local file
-        await util.promisify(fs.writeFile)(filePath, audioBuffer, 'binary');
-        console.log(`Audio content written to file: ${filePath}`);
-
-        // Return the file path or URL to the client
-        return NextResponse.json({ Result: filePath });
-    } catch (error) {
-        console.error('File saving failed:', error);
-        return NextResponse.json({ error: 'Failed to save audio file' });
-    }
+    //     // Return the file path or URL to the client
+    //     return NextResponse.json({ Result: filePath });
+    // } catch (error) {
+    //     console.error('File saving failed:', error);
+    //     return NextResponse.json({ error: 'Failed to save audio file' });
+    // }
 
     // try {
     //     await uploadBytes(storageRef, audioBuffer, { contentType: 'audio/mp3' });
@@ -68,15 +67,11 @@ export async function POST(req) {
     //     return NextResponse.json({ error: 'Upload failed due to retry limit' });
     // }
 
-    // const uploads = await uploadBytes(storageRef, audioBuffer, { contentType: 'audio/mp3' });
-    // console.log(uploads);
-
-    // const downloadUrl = await getDownloadURL(storageRef);
-
-    // console.log(downloadUrl);
-
-
-    // return NextResponse.json({ Result: downloadUrl })
+    const uploads = await uploadBytes(storageRef, audioBuffer, { contentType: 'audio/mp3' });
+    console.log(uploads);
+    const downloadUrl = await getDownloadURL(storageRef);
+    console.log(downloadUrl);
+    return NextResponse.json({ Result: downloadUrl })
 
     // Write the binary audio content to a local file
     // const writeFile = util.promisify(fs.writeFile);
